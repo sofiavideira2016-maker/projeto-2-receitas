@@ -1,0 +1,206 @@
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Times New Roman", serif;
+    color: white;
+    background-color: #07385a;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Imagem de fundo */
+.page {
+    min-height: 100vh;
+    position: relative;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("imagens/aa.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* Barra superior */
+.header {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 35px;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.cup {
+    font-size: 60px;
+    line-height: 1.2;
+}
+
+/* Menu principal */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+    list-style: none;
+}
+
+.menu > li > a,
+summary {
+    display: block;
+    padding: 8px 16px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu a:hover,
+.menu .active,
+summary:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Submenu More Recipes */
+.dropdown {
+    position: relative;
+}
+
+summary {
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: "▾ ";
+}
+
+details[open] summary::before {
+    content: "▴ ";
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    min-width: 130px;
+    z-index: 2;
+
+    list-style: none;
+    background-color: rgba(0, 30, 65, 0.9);
+}
+
+.submenu a {
+    display: block;
+    padding: 8px 15px;
+    text-align: center;
+    font-size: 17px;
+}
+
+/* Conteúdo central */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: clamp(40px, 6vw, 75px);
+    line-height: 1.1;
+}
+
+/* Botões */
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.buttons a {
+    padding: 7px 20px;
+    border: 1px solid white;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.buttons a:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Destaque ao navegar pelo teclado */
+a:focus-visible,
+summary:focus-visible {
+    outline: 2px solid #ffca74;
+    outline-offset: 4px;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 1000px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .content {
+        position: static;
+        transform: none;
+        margin: 100px auto 0;
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu > li > a,
+    summary {
+        padding: 8px 10px;
+        font-size: 16px;
+    }
+
+    .content {
+        margin-top: 70px;
+    }
+
+    .buttons a {
+        font-size: 15px;
+        padding: 8px 12px;
+    }
+}
